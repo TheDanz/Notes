@@ -37,6 +37,8 @@ class DataStoreManager {
         note.header = header
         note.text = text
         note.modifiedDate = modifiedDate
+        note.font = "Avenir Next"
+        note.fontSize = 15
         
         try? viewContext.save()
     }
@@ -58,6 +60,14 @@ class DataStoreManager {
         return object.modifiedDate
     }
     
+    func getFont(for object: NoteModel) -> String? {
+        return object.font
+    }
+    
+    func getFontSize(for object: NoteModel) -> Int? {
+        return Int(object.fontSize)
+    }
+    
     func updateHeader(for object: NoteModel, header: String) {
         object.header = header
         try? viewContext.save()
@@ -70,6 +80,16 @@ class DataStoreManager {
     
     func updateModifiedDate(for object: NoteModel, date: Date) {
         object.modifiedDate = date
+        try? viewContext.save()
+    }
+    
+    func updateFont(for object: NoteModel, font: String) {
+        object.font = font
+        try? viewContext.save()
+    }
+    
+    func updateFontSize(for object: NoteModel, fontSize: Int) {
+        object.fontSize = Int16(fontSize)
         try? viewContext.save()
     }
 }

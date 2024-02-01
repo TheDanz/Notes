@@ -6,7 +6,7 @@ class HomeViewController: UIViewController {
     private let dataStoreManager = DataStoreManager.shared
     private var fetchedResultsController: NSFetchedResultsController<NoteModel>!
     
-    let notesTableView: UITableView = {
+    lazy var notesTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
@@ -27,6 +27,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         view.addSubview(notesTableView)
+        
         notesTableView.delegate = self
         notesTableView.dataSource = self
         
@@ -47,8 +48,9 @@ class HomeViewController: UIViewController {
         button.widthAnchor.constraint(equalToConstant: 70).isActive = true
     }
     
-    @objc func handlerNewNoteButtonClick() {
-        dataStoreManager.createNote(header: "New note", text: "", modifiedDate: Date())
+    @objc
+    private func handlerNewNoteButtonClick() {
+        dataStoreManager.createNote(header: "New note", text: "Write here", modifiedDate: Date())
         DispatchQueue.main.async {
             self.notesTableView.reloadData()
         }
