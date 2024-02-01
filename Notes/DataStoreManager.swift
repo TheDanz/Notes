@@ -46,11 +46,6 @@ class DataStoreManager {
         try? viewContext.save()
     }
     
-    func updateNote(for object: NoteModel, text: String) {
-        object.text = text
-        try? viewContext.save()
-    }
-    
     func getHeader(for object: NoteModel) -> String? {
         return object.header
     }
@@ -61,6 +56,21 @@ class DataStoreManager {
     
     func getModifiedDate(for object: NoteModel) -> Date? {
         return object.modifiedDate
+    }
+    
+    func updateHeader(for object: NoteModel, header: String) {
+        object.header = header
+        try? viewContext.save()
+    }
+    
+    func updateNote(for object: NoteModel, text: String) {
+        object.text = text
+        try? viewContext.save()
+    }
+    
+    func updateModifiedDate(for object: NoteModel, date: Date) {
+        object.modifiedDate = date
+        try? viewContext.save()
     }
 }
 

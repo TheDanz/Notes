@@ -17,6 +17,7 @@
 		05BC82762B6BBDA3009CB5FF /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BC82752B6BBDA3009CB5FF /* NoteTableViewCell.swift */; };
 		05BC827B2B6BD16C009CB5FF /* NoteModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BC82792B6BD16C009CB5FF /* NoteModel+CoreDataClass.swift */; };
 		05BC827C2B6BD16C009CB5FF /* NoteModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BC827A2B6BD16C009CB5FF /* NoteModel+CoreDataProperties.swift */; };
+		05BC827E2B6BD34A009CB5FF /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BC827D2B6BD34A009CB5FF /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		05BC82752B6BBDA3009CB5FF /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		05BC82792B6BD16C009CB5FF /* NoteModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteModel+CoreDataClass.swift"; sourceTree = "<group>"; };
 		05BC827A2B6BD16C009CB5FF /* NoteModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		05BC827D2B6BD34A009CB5FF /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				051D4AC42B6994E100268835 /* AppDelegate.swift */,
 				051D4AC62B6994E100268835 /* SceneDelegate.swift */,
 				05BC82692B6BB364009CB5FF /* HomeViewController.swift */,
+				05BC827D2B6BD34A009CB5FF /* DetailsViewController.swift */,
 				05BC82752B6BBDA3009CB5FF /* NoteTableViewCell.swift */,
 				05BC826B2B6BBA3A009CB5FF /* DataStoreManager.swift */,
 				05BC82792B6BD16C009CB5FF /* NoteModel+CoreDataClass.swift */,
@@ -151,6 +154,7 @@
 			files = (
 				05BC827B2B6BD16C009CB5FF /* NoteModel+CoreDataClass.swift in Sources */,
 				05BC826C2B6BBA3A009CB5FF /* DataStoreManager.swift in Sources */,
+				05BC827E2B6BD34A009CB5FF /* DetailsViewController.swift in Sources */,
 				051D4AC52B6994E100268835 /* AppDelegate.swift in Sources */,
 				05BC827C2B6BD16C009CB5FF /* NoteModel+CoreDataProperties.swift in Sources */,
 				05BC82762B6BBDA3009CB5FF /* NoteTableViewCell.swift in Sources */,

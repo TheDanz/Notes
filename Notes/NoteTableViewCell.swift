@@ -39,6 +39,8 @@ class NoteTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        contentView.backgroundColor = #colorLiteral(red: 0.7823485341, green: 0.5645258996, blue: 0.1184541641, alpha: 1)
+        
         setupAllConstraints()
     }
     

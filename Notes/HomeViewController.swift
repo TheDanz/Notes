@@ -10,6 +10,7 @@ class HomeViewController: UIViewController {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
+        tableView.backgroundColor = #colorLiteral(red: 0.7823485341, green: 0.5645258996, blue: 0.1184541641, alpha: 1)
         tableView.register(NoteTableViewCell.self, forCellReuseIdentifier: NoteTableViewCell.identifier)
         return tableView
     }()
@@ -56,7 +57,7 @@ class HomeViewController: UIViewController {
     private func setupFetchedResultsContoller() {
         
         let fetchRequest: NSFetchRequest<NoteModel> = NoteModel.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "text", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "modifiedDate", ascending: false)
         fetchRequest.sortDescriptors = [sortDescriptor]
         fetchRequest.fetchLimit = 15
         
@@ -96,7 +97,6 @@ extension HomeViewController: UITableViewDataSource {
             noDataLabel.font = UIFont(name: "Avenir Next Bold", size: 30)
             noDataLabel.text = "You haven't saved any notes yet"
             noDataLabel.textAlignment = .center
-            noDataLabel.textColor = #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1)
             noDataLabel.numberOfLines = 0
             tableView.backgroundView = noDataLabel
             
@@ -117,7 +117,8 @@ extension HomeViewController: UITableViewDataSource {
         }
         
         let noteModel = fetchedResultsController?.object(at: indexPath)
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
             cell.headerLabel.text = self.dataStoreManager.getHeader(for: noteModel!)
             cell.dateLabel.text = self.dataStoreManager.getModifiedDate(for: noteModel!)?.formatted()
         }
@@ -135,10 +136,10 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-//        let destinationVC = DetailsViewController()
-//        let noteModel = fetchedResultsController.object(at: indexPath)
-//        destinationVC.data = noteModel
-//        navigationController?.pushViewController(destinationVC, animated: true)
+        let destinationVC = DetailsViewController()
+        let noteModel = fetchedResultsController.object(at: indexPath)
+        destinationVC.data = noteModel
+        navigationController?.pushViewController(destinationVC, animated: true)
     }
 }
 
