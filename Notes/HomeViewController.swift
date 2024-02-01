@@ -47,7 +47,10 @@ class HomeViewController: UIViewController {
     }
     
     @objc func handlerNewNoteButtonClick() {
-        // open new viewController
+        dataStoreManager.createNote(header: "New note", text: "", modifiedDate: Date())
+        DispatchQueue.main.async {
+            self.notesTableView.reloadData()
+        }
     }
     
     private func setupFetchedResultsContoller() {
@@ -115,8 +118,8 @@ extension HomeViewController: UITableViewDataSource {
         
         let noteModel = fetchedResultsController?.object(at: indexPath)
         DispatchQueue.main.async {
-            cell.someTextLabel.text = DataStoreManager.shared.getText(for: noteModel!)
-            // cell.dateLabel.text = Data
+            cell.headerLabel.text = self.dataStoreManager.getHeader(for: noteModel!)
+            cell.dateLabel.text = self.dataStoreManager.getModifiedDate(for: noteModel!)?.formatted()
         }
         return cell
     }

@@ -12,13 +12,13 @@ class NoteTableViewCell: UITableViewCell {
         view.layer.shadowOpacity = 1
         view.layer.shadowRadius = 4
         view.layer.shadowOffset = CGSize(width: 1, height: 5)
-        view.backgroundColor = #colorLiteral(red: 0.3921568627, green: 0.5843137255, blue: 0.9294117647, alpha: 0.8)
+        view.backgroundColor = #colorLiteral(red: 0.9202577243, green: 0.6595746663, blue: 0.2539399565, alpha: 0.8)
         view.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(view)
         return view
     }()
     
-    lazy var someTextLabel: UILabel = {
+    lazy var headerLabel: UILabel = {
         var view = UILabel()
         view.frame = CGRect(x: 0, y: 0, width: 310, height: 40)
         view.font = UIFont(name: "Avenir Next Demi Bold", size: 20)
@@ -56,7 +56,7 @@ class NoteTableViewCell: UITableViewCell {
     
     private func setupAllConstraints() {
         setupMainViewConstraints()
-        setupSomeTextLabelConstraints()
+        setupHeaderLabelConstraints()
         setupDateLabelConstraints()
     }
     
@@ -67,16 +67,16 @@ class NoteTableViewCell: UITableViewCell {
         mainView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
     }
     
-    private func setupSomeTextLabelConstraints() {
-        someTextLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        someTextLabel.topAnchor.constraint(equalTo: mainView.topAnchor, constant: 10).isActive = true
-        someTextLabel.leftAnchor.constraint(equalTo: mainView.leftAnchor, constant: 18).isActive = true
-        someTextLabel.rightAnchor.constraint(equalTo: mainView.rightAnchor, constant: -17).isActive = true
+    private func setupHeaderLabelConstraints() {
+        headerLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        headerLabel.topAnchor.constraint(equalTo: mainView.topAnchor, constant: 10).isActive = true
+        headerLabel.leftAnchor.constraint(equalTo: mainView.leftAnchor, constant: 18).isActive = true
+        headerLabel.rightAnchor.constraint(equalTo: mainView.rightAnchor, constant: -17).isActive = true
     }
     
     private func setupDateLabelConstraints() {
         dateLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        dateLabel.topAnchor.constraint(equalTo: someTextLabel.bottomAnchor, constant: 0).isActive = true
+        dateLabel.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 0).isActive = true
         dateLabel.leftAnchor.constraint(equalTo: mainView.leftAnchor, constant: 18).isActive = true
         dateLabel.rightAnchor.constraint(equalTo: mainView.rightAnchor, constant: -17).isActive = true
     }

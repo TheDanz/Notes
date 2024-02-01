@@ -31,10 +31,12 @@ class DataStoreManager {
         }
     }
     
-    func createNote(text: String) {
+    func createNote(header: String, text: String, modifiedDate: Date) {
         
         let note = NoteModel(context: viewContext)
-        note.text  = text
+        note.header = header
+        note.text = text
+        note.modifiedDate = modifiedDate
         
         try? viewContext.save()
     }
@@ -49,8 +51,16 @@ class DataStoreManager {
         try? viewContext.save()
     }
     
+    func getHeader(for object: NoteModel) -> String? {
+        return object.header
+    }
+    
     func getText(for object: NoteModel) -> String? {
         return object.text
+    }
+    
+    func getModifiedDate(for object: NoteModel) -> Date? {
+        return object.modifiedDate
     }
 }
 
